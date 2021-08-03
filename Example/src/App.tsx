@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FlatList, StyleSheet, Text, View, LogBox, Button } from 'react-native';
+import { FlatList, StyleSheet, Text, View, LogBox, Button, findNodeHandle } from 'react-native';
 import { RectButton, ScrollView } from 'react-native-gesture-handler';
 import {
   createStackNavigator,
@@ -33,10 +33,10 @@ import AnimatedTabBarExample from './AnimatedTabBarExample';
 import LightboxExample from './LightboxExample';
 import LiquidSwipe from './LiquidSwipe';
 import ScrollExample from './AnimatedScrollExample';
-LogBox.ignoreLogs(['Calling `getNode()`']);
+import MapViewExample from './LayoutReanimation/MapViewExample';
 
-import Animated, { FadeOut, FadeIn } from 'react-native-reanimated';
-import { findNodeHandle } from 'react-native';
+import Animated, {  FadeIn } from 'react-native-reanimated';
+LogBox.ignoreLogs(['Calling `getNode()`']);
 
 type Screens = Record<string, { screen: React.ComponentType; title?: string }>;
 
@@ -62,6 +62,10 @@ const SCREENS: Screens = {
   DefaultAnimations: {
     screen: DefaultAnimations,
     title: '🆕 Default layout animations',
+  },
+  MapViewExample: {
+    screen: MapViewExample,
+    title: '🆕  MapView',
   },
   CustomLayoutAnimation: {
     screen: CustomLayoutAnimationScreen,

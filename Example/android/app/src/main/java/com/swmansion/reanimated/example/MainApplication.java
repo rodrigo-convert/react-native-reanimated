@@ -24,7 +24,7 @@ import org.reactnative.maskedview.RNCMaskedViewPackage;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.List;
-
+import com.airbnb.android.react.maps.MapsPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -43,7 +43,8 @@ public class MainApplication extends Application implements ReactApplication {
           new ReanimatedPackage(),
           new RNGestureHandlerPackage(),
           new SafeAreaContextPackage(),
-          new RNScreensPackage()
+          new RNScreensPackage(),
+          new MapsPackage()
       );
     }
 
