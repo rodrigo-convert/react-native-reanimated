@@ -1,41 +1,42 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { FlatList, StyleSheet, Text, View, LogBox, Button, findNodeHandle } from 'react-native';
+import Animated, { FadeIn } from 'react-native-reanimated';
+import { Button, FlatList, LogBox, StyleSheet, Text, View, findNodeHandle } from 'react-native';
+import {
+  Carousel,
+  CustomLayoutAnimationScreen,
+  DefaultAnimations,
+  Modal,
+  ModalNewAPI,
+  MountingUnmounting,
+  SpringLayoutAnimation,
+  SwipeableList,
+} from './LayoutReanimation';
+import React, { useEffect, useRef, useState } from 'react';
 import { RectButton, ScrollView } from 'react-native-gesture-handler';
 import {
-  createStackNavigator,
   StackNavigationProp,
+  createStackNavigator,
 } from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
-import {
-  SpringLayoutAnimation,
-  MountingUnmounting,
-  SwipeableList,
-  Modal,
-  Carousel,
-  ModalNewAPI,
-  DefaultAnimations,
-  CustomLayoutAnimationScreen,
-} from './LayoutReanimation';
 
-import Reanimated1 from '../reanimated1/App';
-
-import ExtrapolationExample from './ExtrapolationExample';
 import AnimatedStyleUpdateExample from './AnimatedStyleUpdateExample';
-import WobbleExample from './WobbleExample';
-import DragAndSnapExample from './DragAndSnapExample';
-import ScrollEventExample from './ScrollEventExample';
-import ChatHeadsExample from './ChatHeadsExample';
-import MeasureExample from './MeasureExample';
-import SwipeableListExample from './SwipeableListExample';
-import ScrollableViewExample from './ScrollableViewExample';
-import ScrollToExample from './ScrollToExample';
 import AnimatedTabBarExample from './AnimatedTabBarExample';
+import ChatHeadsExample from './ChatHeadsExample';
+import DragAndSnapExample from './DragAndSnapExample';
+import ExtrapolationExample from './ExtrapolationExample';
 import LightboxExample from './LightboxExample';
 import LiquidSwipe from './LiquidSwipe';
-import ScrollExample from './AnimatedScrollExample';
 import MapViewExample from './LayoutReanimation/MapViewExample';
+import MeasureExample from './MeasureExample';
+import ModalExample from './LayoutReanimation/ModalExample';
+import { NavigationContainer } from '@react-navigation/native';
+import Reanimated1 from '../reanimated1/App';
+import ScrollEventExample from './ScrollEventExample';
+import ScrollExample from './AnimatedScrollExample';
+import ScrollToExample from './ScrollToExample';
+import ScrollableViewExample from './ScrollableViewExample';
+import { SvgExample } from './LayoutReanimation/SvgExample';
+import SwipeableListExample from './SwipeableListExample';
+import WobbleExample from './WobbleExample';
 
-import Animated, {  FadeIn } from 'react-native-reanimated';
 LogBox.ignoreLogs(['Calling `getNode()`']);
 
 type Screens = Record<string, { screen: React.ComponentType; title?: string }>;
@@ -66,6 +67,14 @@ const SCREENS: Screens = {
   MapViewExample: {
     screen: MapViewExample,
     title: '🆕  MapView',
+  },
+  ModalExample: {
+    screen: ModalExample,
+    title: '🆕  ModalExample',
+  },
+  SvgExample: {
+    screen: SvgExample,
+    title: '🆕  SvgExample',
   },
   CustomLayoutAnimation: {
     screen: CustomLayoutAnimationScreen,

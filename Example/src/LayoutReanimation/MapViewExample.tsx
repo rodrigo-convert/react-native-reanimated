@@ -41,6 +41,7 @@ const markers: MarkerProps[] = [
 ];
 
 const { height } = Dimensions.get('window');
+const AnimatedMarker = Animated.createAnimatedComponent(Marker);
 
 export default function MapViewExample(): React.ReactElement {
   const [currentRegion, setCurrentRegion] = useState({
@@ -57,11 +58,10 @@ export default function MapViewExample(): React.ReactElement {
       <MapView style={{ height: height }} initialRegion={currentRegion}>
         {visibleMarkers.map((marker) => {
           return (
-            <Marker key={marker.id} coordinate={marker.coordinate}>
+            <AnimatedMarker key={marker.id} coordinate={marker.coordinate} entering={BounceIn.duration(1000)}
+            exiting={BounceOut.duration(1000)}>
               <Animated.View
                 layout={Layout.duration(1000)}
-                entering={BounceIn.duration(1000)}
-                exiting={BounceOut.duration(1000)}
                 style={[
                   styles.marker,
                   {
@@ -70,7 +70,7 @@ export default function MapViewExample(): React.ReactElement {
                   },
                 ]}
               />
-            </Marker>
+            </AnimatedMarker>
           );
         })}
       </MapView>
